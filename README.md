@@ -52,6 +52,26 @@ RunnerQuest: Explore CSUB is a web-based educational game designed to help users
 - **GitHub**
 - **GitHub Projects**
 
+## 👥 Team
+
+### Juan Villacorta — Backend Lead
+- Express server
+- API routes & controllers
+- Database schema
+- Progress & leaderboard system
+
+### Douglas — Frontend / Game Lead
+- Phaser game development
+- Player movement & mechanics
+- Scene management
+- Frontend ↔ backend integration
+
+### Joseph — Design / Content Lead
+- Campus map (Tiled)
+- UI/UX design
+- Visual assets
+- Minigame content
+
 ## Proposed Project Structure
 
 ```bash
