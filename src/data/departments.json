@@ -1,0 +1,20 @@
+[
+  {
+    "id": "library",
+    "name": "Walter Stiern Library",
+    "description": "Study spaces and research support.",
+    "minigameType": "quiz"
+  },
+  {
+    "id": "student_union",
+    "name": "Student Union",
+    "description": "Student activities and services.",
+    "minigameType": "memory"
+  },
+  {
+    "id": "science_building",
+    "name": "Science Building",
+    "description": "Labs, classrooms, and science-related departments.",
+    "minigameType": "timing"
+  }
+]

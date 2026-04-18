@@ -1,0 +1,31 @@
+{
+  "name": "runnerquest-explore-csub",
+  "version": "1.0.0",
+  "description": "A 2D top-down campus exploration game inspired by California State University, Bakersfield (CSUB). Players explore key campus locations, interact with NPCs, complete short minigames, and unlock progress badges while learning useful campus information.",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JCVB51/runnerquest-explore-csub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JCVB51/runnerquest-explore-csub/issues"
+  },
+  "homepage": "https://github.com/JCVB51/runnerquest-explore-csub#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
