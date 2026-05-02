@@ -3,6 +3,7 @@ const cors = require("cors");
 
 const healthRoutes = require("./routes/health.routes");
 const departmentsRoutes = require("./routes/departments.routes");
+const progressRoutes = require("./routes/progress.routes");
 
 const app = express();
 
@@ -11,5 +12,6 @@ app.use(express.json());
 
 app.use("/api/health", healthRoutes);
 app.use("/api/departments", departmentsRoutes);
+app.use("/api/progress", progressRoutes);
 
 module.exports = app;

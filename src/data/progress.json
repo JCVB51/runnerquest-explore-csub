@@ -1,0 +1,9 @@
+[
+  {
+    "playerId": "testplayer",
+    "locationId": "library",
+    "completed": true,
+    "badgeUnlocked": true,
+    "score": 10
+  }
+]
