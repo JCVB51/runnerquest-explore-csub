@@ -6,16 +6,20 @@
     ],
     "fileStates": {
         "assets/CSUB Overworld.tmx": {
-            "scale": 1,
+            "scale": 0.75,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 227.5,
-                "y": 356
+                "x": 340.6666666666667,
+                "y": 153.33333333333337
             }
         },
         "assets/Maple Tree.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "assets/Room_Builder_free_16x16.tsx": {
+            "scaleInDock": 1.5,
             "scaleInEditor": 1
         },
         "assets/TX Shadow.tsx": {
@@ -41,7 +45,7 @@
             "scaleInEditor": 1
         }
     },
-    "last.imagePath": "C:/Users/dougl/Desktop/Coding/Javascript/runnerquest-explore-csub/runner explorer/assets/Pixel Art Top Down 32x32/Texture",
+    "last.imagePath": "C:/Users/dougl/Desktop/Coding/Javascript/runnerquest-explore-csub/runner explorer/assets/Modern tiles_Free 16x16/Interiors_free/16x16",
     "map.height": 40,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
@@ -50,10 +54,12 @@
     "openFiles": [
         "assets/CSUB Overworld.tmx",
         "assets/farm rpg.tsx",
-        "assets/Maple Tree.tsx"
+        "assets/Maple Tree.tsx",
+        "assets/Room_Builder_free_16x16.tsx"
     ],
     "project": "runner-explorer.tiled-project",
     "recentFiles": [
+        "assets/Room_Builder_free_16x16.tsx",
         "assets/Maple Tree.tsx",
         "assets/farm rpg.tsx",
         "assets/CSUB Overworld.tmx",
