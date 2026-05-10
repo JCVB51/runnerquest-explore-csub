@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const db = require("../../config/db");
 const { generateVerificationToken, hashVerificationToken } = require("./auth.utils");
+const { sendVerificationEmail } = require("./auth.email");
 
 async function signupUser({ email, password }) {
   const [existingUsers] = await db.execute(
@@ -33,6 +34,13 @@ async function signupUser({ email, password }) {
     [email, passwordHash, tokenHash, expiresAt]
   );
 
+  // Best-effort: never fail signup if email delivery has issues.
+  // sendVerificationEmail already swallows errors and returns { delivered: false, ... }.
+  const emailResult = await sendVerificationEmail({
+    to: email,
+    token: rawToken,
+  });
+
   return {
     data: {
       id: result.insertId,
@@ -40,6 +48,9 @@ async function signupUser({ email, password }) {
       isEmailVerified: false,
       verificationToken: process.env.NODE_ENV === "production" ? undefined : rawToken,
       verificationExpiresAt: expiresAt,
+      emailDelivered: emailResult.delivered === true,
+      verificationLink:
+        process.env.NODE_ENV === "production" ? undefined : emailResult.link,
     },
   };
 }
