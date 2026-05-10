@@ -2,8 +2,8 @@
     "activeFile": "oldAssets/CSUB Overworld.tmx",
     "expandedProjectPaths": [
         "oldAssets",
-        ".",
-        "assets"
+        "assets",
+        "."
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -72,10 +72,10 @@
         },
         "oldAssets/CSUB Overworld.tmx": {
             "scale": 0.75,
-            "selectedLayer": 0,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 435.99999999999994,
-                "y": -194.66666666666663
+                "x": 410.66666666666674,
+                "y": 477.33333333333337
             }
         },
         "oldAssets/CSUB Overworld.tmx#ClassicRPG_Sheet": {

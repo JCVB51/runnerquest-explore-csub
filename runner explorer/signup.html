@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>RunnerQuest Explorer — Login</title>
+    <title>RunnerQuest Explorer — Sign Up</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
     <style>
@@ -11,7 +11,7 @@
         }
         body { font-family: 'Rajdhani', sans-serif; }
         .game-font { font-family: 'Press Start 2P', monospace; }
- 
+
         .pixel-border {
             box-shadow:
                 4px 0 0 0 var(--gold),
@@ -32,7 +32,7 @@
             box-shadow: none;
             transform: translate(4px, 4px);
         }
- 
+
         .bg-grid {
             background-color: #001a4d;
             background-image:
@@ -40,7 +40,7 @@
                 linear-gradient(90deg, rgba(255,199,44,0.05) 1px, transparent 1px);
             background-size: 32px 32px;
         }
- 
+
         .scanline {
             pointer-events: none;
             position: fixed; inset: 0;
@@ -49,39 +49,42 @@
             z-index: 50;
             opacity: 0.4;
         }
- 
+
         input:-webkit-autofill {
             -webkit-box-shadow: 0 0 0 1000px #001133 inset !important;
             -webkit-text-fill-color: white !important;
         }
- 
+
     </style>
 </head>
-<body class="bg-grid min-h-screen flex flex-col items-center justify-center px-4 relative">
- 
+<body class="bg-grid min-h-screen flex flex-col items-center justify-center px-4 relative py-8">
+
     <div class="scanline"></div>
-    <div class="mb-10 text-center">
-        <h1 class="game-font text-xl md:text-3xl leading-relaxed" style="color: white; text-shadow: 3px 3px 0 var(--blue), 0 0 30px rgba(255,199,44,0.3);">
+
+    <div class="mb-8 text-center">
+        <h1 class="game-font text-xl md:text-3xl leading-relaxed" style="color: white; text-shadow: 3px 3px 0 var(--blue);">
             RUNNER<span style="color: var(--gold);">QUEST</span>
         </h1>
-        <h2 class="game-font text-sm md:text-base mt-1" style="color: #a0b8e0;">
-            EXPLORER
-        </h2>
+        <h2 class="game-font text-sm mt-1" style="color: #a0b8e0;">EXPLORER</h2>
     </div>
- 
+
     <div class="pixel-border w-full max-w-sm p-8" style="background: rgba(0, 26, 77, 0.95);">
- 
+
         <div class="game-font text-xs mb-6 flex items-center gap-2" style="color: var(--gold);">
-            PLAYER LOGIN <span class="cursor">_</span>
+            CREATE ACCOUNT <span class="cursor">_</span>
         </div>
- 
-        <div id="error-msg" class="hidden game-font mb-4 p-3" style="background: rgba(255,50,50,0.15); color: #ff6b6b; border-left: 3px solid #ff4444; font-size: 9px;">
+
+        <div id="error-msg" class="hidden game-font mb-4 p-3" style="background: rgba(255,50,50,0.15); color: #ff6b6b; border-left: 3px solid #ff4444; font-size: 8px; line-height: 1.8;">
         </div>
- 
-        <form id="login-form" novalidate>
+
+        <div id="success-msg" class="hidden game-font mb-4 p-3" style="background: rgba(34,197,94,0.15); color: #4ade80; border-left: 3px solid #22c55e; font-size: 8px; line-height: 1.8;">
+        </div>
+
+        <form id="signup-form" novalidate>
+
             <div class="mb-4">
                 <label class="game-font block mb-2" style="color: #a0b8e0; font-size: 9px;">
-                    EMAIL
+                    CSUB EMAIL
                 </label>
                 <input
                     id="email"
@@ -90,40 +93,56 @@
                     class="w-full px-4 py-3 text-white outline-none text-sm font-semibold"
                     style="background: #001133; border: 2px solid #003594; font-family: 'Rajdhani', sans-serif;"
                 />
+                <div id="email-hint" class="mt-1" style="color: #4a6fa5; font-size: 10px; font-family: 'Rajdhani', sans-serif;">
+                    Must end in @csub.edu
+                </div>
             </div>
- 
-            <div class="mb-6">
+
+            <div class="mb-4">
                 <label class="game-font block mb-2" style="color: #a0b8e0; font-size: 9px;">
                     PASSWORD
                 </label>
                 <input
                     id="password"
                     type="password"
+                    placeholder="min. 6 characters"
                     class="w-full px-4 py-3 text-white outline-none text-sm font-semibold"
                     style="background: #001133; border: 2px solid #003594; font-family: 'Rajdhani', sans-serif;"
                 />
             </div>
- 
+
+            <div class="mb-6">
+                <label class="game-font block mb-2" style="color: #a0b8e0; font-size: 9px;">
+                    CONFIRM PASSWORD
+                </label>
+                <input
+                    id="confirm"
+                    type="password"
+                    placeholder="repeat password"
+                    class="w-full px-4 py-3 text-white outline-none text-sm font-semibold"
+                    style="background: #001133; border: 2px solid #003594; font-family: 'Rajdhani', sans-serif;"
+                />
+            </div>
+
             <button
                 type="submit"
                 class="pixel-btn w-full py-3 game-font font-bold"
                 style="background: var(--gold); color: var(--blue); font-size: 10px;"
             >
-                START GAME
+                JOIN THE QUEST
             </button>
         </form>
- 
+
         <div class="mt-6 text-center">
-            <span class="text-sm" style="color: #a0b8e0;">New runner? </span>
-            <a href="signup.html" class="text-sm font-bold hover:underline" style="color: var(--gold);">
-                CREATE ACCOUNT
+            <span class="text-sm" style="color: #a0b8e0;">Already a runner? </span>
+            <a href="index.html" class="text-sm font-bold hover:underline" style="color: var(--gold);">
+                LOGIN →
             </a>
         </div>
     </div>
- 
+
     <div class="mt-6 game-font" style="color: #1a3a6b; font-size: 8px;">
         CSUB RUNNERQUEST EXPLORER
     </div>
- 
 </body>
 </html>

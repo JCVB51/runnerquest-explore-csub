@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RunnerQuest Explorer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        #game-container canvas {
+            width: 900px !important;
+            height: 900px !important;
+            image-rendering: pixelated;
+        }
+
+        #logout-btn {
+            position: fixed;
+            top: 12px;
+            right: 16px;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 8px;
+            background: #003594;
+            color: #FFC72C;
+            border: 2px solid #FFC72C;
+            padding: 6px 10px;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 2px 2px 0 0 rgba(0,0,0,0.5);
+        }
+        #logout-btn:hover {
+            background: #FFC72C;
+            color: #003594;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <button id="logout-btn">⏻ LOGOUT</button>
+    <div id="game-container"></div>
+
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
