@@ -2,19 +2,121 @@
   {
     "id": "library",
     "name": "Walter Stiern Library",
-    "description": "Study spaces and research support.",
-    "minigameType": "quiz"
+    "shortDescription": "The campus hub for studying, research help, and quiet workspaces.",
+    "longDescription": "The Walter Stiern Library is the academic heart of CSUB. It offers individual and group study rooms, computer workstations, course reserves, research databases, and one-on-one help from subject librarians. Whether you need a quiet corner to focus or a place to collaborate on a group project, the library has space for it.",
+    "category": "academic",
+    "services": [
+      "Study rooms (individual and group)",
+      "Computer lab and printing",
+      "Research and citation help from librarians",
+      "Course reserves and textbook checkout",
+      "Access to online journals and databases"
+    ],
+    "links": [
+      { "label": "Library home page", "url": "https://www.csub.edu/library/" },
+      { "label": "Hours and locations", "url": "https://www.csub.edu/library/about/hours" },
+      { "label": "Reserve a study room", "url": "https://www.csub.edu/library/" }
+    ],
+    "minigameType": "quiz",
+    "mapLabel": "Library"
   },
   {
     "id": "student_union",
     "name": "Student Union",
-    "description": "Student activities and services.",
-    "minigameType": "memory"
+    "shortDescription": "Where student life happens — events, clubs, and a place to hang out.",
+    "longDescription": "The Student Union is the social center of campus. It hosts student clubs and organizations, cultural and community events, and casual lounges where students relax between classes. Stop in to find flyers about upcoming activities, meet new people, or grab a snack between lectures.",
+    "category": "student_life",
+    "services": [
+      "Student clubs and organizations",
+      "Lounge and meeting spaces",
+      "Campus events and programming",
+      "Information desk for new students",
+      "Bulletin boards for jobs, housing, and tutoring"
+    ],
+    "links": [
+      { "label": "Student life at CSUB", "url": "https://www.csub.edu/studentlife/" },
+      { "label": "Clubs and organizations", "url": "https://www.csub.edu/studentlife/" }
+    ],
+    "minigameType": "memory",
+    "mapLabel": "Student Union"
   },
   {
     "id": "science_building",
     "name": "Science Building",
-    "description": "Labs, classrooms, and science-related departments.",
-    "minigameType": "timing"
+    "shortDescription": "Labs and classrooms for biology, chemistry, physics, and more.",
+    "longDescription": "The Science Building houses laboratories, lecture halls, and faculty offices for CSUB's natural sciences. Students taking courses in biology, chemistry, geology, physics, and related fields will spend a lot of time here. Look for posted office hours on faculty doors if you need help with coursework.",
+    "category": "academic",
+    "services": [
+      "Teaching laboratories",
+      "Lecture classrooms",
+      "Faculty offices and posted office hours",
+      "Science tutoring and supplemental instruction"
+    ],
+    "links": [
+      { "label": "School of Natural Sciences, Mathematics, and Engineering", "url": "https://www.csub.edu/nsme/" },
+      { "label": "Tutoring services", "url": "https://www.csub.edu/asc/" }
+    ],
+    "minigameType": "timing",
+    "mapLabel": "Science Building"
+  },
+  {
+    "id": "rec_center",
+    "name": "Student Recreation Center",
+    "shortDescription": "Gym, fitness classes, and indoor courts for all CSUB students.",
+    "longDescription": "The Student Recreation Center is open to enrolled CSUB students and gives you access to weight and cardio equipment, group fitness classes, basketball and volleyball courts, and intramural sports. Bring your Runner Card to check in at the front desk.",
+    "category": "athletics",
+    "services": [
+      "Cardio and weight training",
+      "Group fitness and yoga classes",
+      "Indoor basketball and volleyball courts",
+      "Intramural and club sports",
+      "Equipment checkout"
+    ],
+    "links": [
+      { "label": "Campus Recreation", "url": "https://www.csub.edu/recreation/" },
+      { "label": "Intramural sports", "url": "https://www.csub.edu/recreation/" }
+    ],
+    "minigameType": "reaction",
+    "mapLabel": "Rec Center"
+  },
+  {
+    "id": "runner_cafe",
+    "name": "Runner Café",
+    "shortDescription": "On-campus dining with hot meals, snacks, and coffee.",
+    "longDescription": "Runner Café is the main on-campus dining spot, with a rotating menu of hot meals, made-to-order options, grab-and-go snacks, and coffee. Most accepted payment methods include Runner Card meal plans, credit/debit, and cash. Hours vary by day and are typically reduced on weekends and during breaks.",
+    "category": "dining",
+    "services": [
+      "Hot meals and daily specials",
+      "Grab-and-go sandwiches and snacks",
+      "Coffee and espresso drinks",
+      "Meal plan and Runner Card accepted"
+    ],
+    "links": [
+      { "label": "CSUB Dining", "url": "https://www.csub.edu/dining/" },
+      { "label": "Meal plans", "url": "https://www.csub.edu/dining/" }
+    ],
+    "minigameType": "memory",
+    "mapLabel": "Runner Café"
+  },
+  {
+    "id": "advising_center",
+    "name": "Advising and Student Services",
+    "shortDescription": "Help with class registration, majors, graduation, and student support.",
+    "longDescription": "The Advising and Student Services area is where you go for academic advising, help choosing or changing a major, graduation checks, and questions about financial aid, tutoring, or career planning. New students should visit early in the term to map out their academic plan.",
+    "category": "services",
+    "services": [
+      "Academic advising and major exploration",
+      "Registration and graduation support",
+      "Financial aid information",
+      "Career counseling and resume help",
+      "Referrals to tutoring and accessibility services"
+    ],
+    "links": [
+      { "label": "Academic Advising", "url": "https://www.csub.edu/advising/" },
+      { "label": "Financial Aid", "url": "https://www.csub.edu/financialaid/" },
+      { "label": "Career Education and Community Engagement", "url": "https://www.csub.edu/careereducation/" }
+    ],
+    "minigameType": "quiz",
+    "mapLabel": "Advising"
   }
 ]
