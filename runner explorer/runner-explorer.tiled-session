@@ -1,17 +1,25 @@
 {
-    "activeFile": "assets/Library.tmx",
+    "activeFile": "assets/CSUB Overworld.tmx",
     "expandedProjectPaths": [
         "assets",
         "."
     ],
     "fileStates": {
         "assets/CSUB Overworld.tmx": {
-            "scale": 0.75,
-            "selectedLayer": 4,
+            "scale": 1,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 402.66666666666674,
-                "y": 276
+                "x": 362,
+                "y": 326
             }
+        },
+        "assets/ClassicRPG_Sheet.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "assets/Fence's copiar.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "assets/Library.tmx": {
             "scale": 0.75,
@@ -61,7 +69,7 @@
             "scaleInEditor": 1
         }
     },
-    "last.imagePath": "C:/Users/dougl/Desktop/Coding/Javascript/runnerquest-explore-csub/runner explorer/assets/sprites/tilesets",
+    "last.imagePath": "C:/Users/dougl/Desktop/Coding/Javascript/runnerquest-explore-csub/runner explorer/assets/Farm RPG FREE 16x16 - Tiny Asset Pack/Objects",
     "map.height": 40,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
@@ -71,21 +79,22 @@
         "assets/CSUB Overworld.tmx",
         "assets/farm rpg.tsx",
         "assets/Maple Tree.tsx",
-        "assets/Library.tmx"
+        "assets/ClassicRPG_Sheet.tsx"
     ],
     "project": "runner-explorer.tiled-project",
     "recentFiles": [
-        "assets/CSUB Overworld.tmx",
-        "assets/farm rpg.tsx",
+        "assets/ClassicRPG_Sheet.tsx",
         "assets/Maple Tree.tsx",
+        "assets/farm rpg.tsx",
+        "assets/CSUB Overworld.tmx",
+        "assets/TX Tileset Stone Ground.tsx",
+        "assets/Fence's copiar.tsx",
         "assets/Library.tmx",
         "assets/Room_Builder_free_16x16.tsx",
         "assets/plains.tsx",
         "assets/interior.tsx",
-        "assets/TX Tileset Stone Ground.tsx",
         "assets/TX Shadow.tsx",
-        "assets/Trees.tsx",
-        "assets/farm_rpg.tsx"
+        "assets/Trees.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
