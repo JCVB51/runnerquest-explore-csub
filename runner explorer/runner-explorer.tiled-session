@@ -1,13 +1,15 @@
 {
-    "activeFile": "assets/CSUB Overworld.tmx",
+    "activeFile": "oldAssets/CSUB Overworld.tmx",
     "expandedProjectPaths": [
-        "assets",
-        "."
+        "oldAssets",
+        ".",
+        "assets"
     ],
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "assets/CSUB Overworld.tmx": {
             "scale": 1,
-            "selectedLayer": 2,
+            "selectedLayer": 7,
             "viewCenter": {
                 "x": 362,
                 "y": 326
@@ -67,22 +69,52 @@
         "assets/plains.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
+        },
+        "oldAssets/CSUB Overworld.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 435.99999999999994,
+                "y": -194.66666666666663
+            }
+        },
+        "oldAssets/CSUB Overworld.tmx#ClassicRPG_Sheet": {
+            "scaleInDock": 2
+        },
+        "oldAssets/CSUB Overworld.tmx#Maple Tree": {
+            "scaleInDock": 1
+        },
+        "oldAssets/CSUB Overworld.tmx#farm rpg": {
+            "scaleInDock": 1.5
+        },
+        "oldAssets/ClassicRPG_Sheet.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "oldAssets/Maple Tree.tsx": {
+            "scaleInDock": 1
+        },
+        "oldAssets/farm rpg.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         }
     },
+    "last.exportedFilePath": "C:/Users/dougl/Desktop/Coding/Javascript/runnerquest-explore-csub/runner explorer/assets/maps",
     "last.imagePath": "C:/Users/dougl/Desktop/Coding/Javascript/runnerquest-explore-csub/runner explorer/assets/Farm RPG FREE 16x16 - Tiny Asset Pack/Objects",
     "map.height": 40,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
     "map.width": 40,
     "openFiles": [
-        "assets/CSUB Overworld.tmx",
-        "assets/farm rpg.tsx",
-        "assets/Maple Tree.tsx",
-        "assets/ClassicRPG_Sheet.tsx"
+        "oldAssets/CSUB Overworld.tmx"
     ],
     "project": "runner-explorer.tiled-project",
     "recentFiles": [
+        "oldAssets/CSUB Overworld.tmx",
+        "oldAssets/farm rpg.tsx",
+        "oldAssets/ClassicRPG_Sheet.tsx",
         "assets/ClassicRPG_Sheet.tsx",
         "assets/Maple Tree.tsx",
         "assets/farm rpg.tsx",
@@ -91,10 +123,7 @@
         "assets/Fence's copiar.tsx",
         "assets/Library.tmx",
         "assets/Room_Builder_free_16x16.tsx",
-        "assets/plains.tsx",
-        "assets/interior.tsx",
-        "assets/TX Shadow.tsx",
-        "assets/Trees.tsx"
+        "assets/plains.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
