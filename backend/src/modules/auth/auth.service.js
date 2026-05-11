@@ -1,7 +1,6 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const db = require("../../config/db");
-const { generateVerificationToken, hashVerificationToken } = require("./auth.utils");
 
 async function signupUser({ email, password }) {
   const [existingUsers] = await db.execute(
@@ -17,80 +16,22 @@ async function signupUser({ email, password }) {
   }
 
   const passwordHash = await bcrypt.hash(password, 10);
-  const { rawToken, tokenHash, expiresAt } = generateVerificationToken();
 
   const [result] = await db.execute(
     `
       INSERT INTO users (
         email,
-        password_hash,
-        is_email_verified,
-        email_verification_token_hash,
-        email_verification_expires_at
+        password_hash
       )
-      VALUES (?, ?, 0, ?, ?)
+      VALUES (?, ?)
     `,
-    [email, passwordHash, tokenHash, expiresAt]
+    [email, passwordHash]
   );
 
   return {
     data: {
       id: result.insertId,
-      email,
-      isEmailVerified: false,
-      verificationToken: process.env.NODE_ENV === "production" ? undefined : rawToken,
-      verificationExpiresAt: expiresAt,
-    },
-  };
-}
-
-async function verifyEmailToken(rawToken) {
-  const tokenHash = hashVerificationToken(rawToken);
-
-  const [users] = await db.execute(
-    `
-      SELECT id, email_verification_expires_at
-      FROM users
-      WHERE email_verification_token_hash = ?
-      LIMIT 1
-    `,
-    [tokenHash]
-  );
-
-  if (users.length === 0) {
-    return {
-      error: "Invalid verification token.",
-      statusCode: 404,
-    };
-  }
-
-  const user = users[0];
-
-  if (
-    !user.email_verification_expires_at ||
-    new Date(user.email_verification_expires_at).getTime() < Date.now()
-  ) {
-    return {
-      error: "Verification token has expired.",
-      statusCode: 400,
-    };
-  }
-
-  await db.execute(
-    `
-      UPDATE users
-      SET
-        is_email_verified = 1,
-        email_verification_token_hash = NULL,
-        email_verification_expires_at = NULL
-      WHERE id = ?
-    `,
-    [user.id]
-  );
-
-  return {
-    data: {
-      message: "Email verified successfully.",
+      email
     },
   };
 }
@@ -98,7 +39,7 @@ async function verifyEmailToken(rawToken) {
 async function loginUser({ email, password }) {
   const [users] = await db.execute(
     `
-      SELECT id, email, password_hash, is_email_verified
+      SELECT id, email, password_hash
       FROM users
       WHERE email = ?
       LIMIT 1
@@ -123,13 +64,6 @@ async function loginUser({ email, password }) {
     };
   }
 
-  if (user.is_email_verified !== 1) {
-    return {
-      error: "Email is not verified yet.",
-      statusCode: 400,
-    };
-  }
-
   const token = jwt.sign(
     {
       sub: user.id,
@@ -144,8 +78,7 @@ async function loginUser({ email, password }) {
       token,
       user: {
         id: user.id,
-        email: user.email,
-        isEmailVerified: true,
+        email: user.email
       },
     },
   };
@@ -153,6 +86,5 @@ async function loginUser({ email, password }) {
 
 module.exports = {
   signupUser,
-  verifyEmailToken,
   loginUser,
 };
