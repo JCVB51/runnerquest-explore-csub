@@ -11,7 +11,7 @@
         }
         body { font-family: 'Rajdhani', sans-serif; }
         .game-font { font-family: 'Press Start 2P', monospace; }
- 
+
         .pixel-border {
             box-shadow:
                 4px 0 0 0 var(--gold),
@@ -32,7 +32,11 @@
             box-shadow: none;
             transform: translate(4px, 4px);
         }
- 
+        .pixel-btn:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
         .bg-grid {
             background-color: #001a4d;
             background-image:
@@ -40,7 +44,7 @@
                 linear-gradient(90deg, rgba(255,199,44,0.05) 1px, transparent 1px);
             background-size: 32px 32px;
         }
- 
+
         .scanline {
             pointer-events: none;
             position: fixed; inset: 0;
@@ -49,17 +53,18 @@
             z-index: 50;
             opacity: 0.4;
         }
- 
+
         input:-webkit-autofill {
             -webkit-box-shadow: 0 0 0 1000px #001133 inset !important;
             -webkit-text-fill-color: white !important;
         }
- 
     </style>
 </head>
 <body class="bg-grid min-h-screen flex flex-col items-center justify-center px-4 relative">
- 
+
     <div class="scanline"></div>
+
+    <!-- Logo -->
     <div class="mb-10 text-center">
         <h1 class="game-font text-xl md:text-3xl leading-relaxed" style="color: white; text-shadow: 3px 3px 0 var(--blue), 0 0 30px rgba(255,199,44,0.3);">
             RUNNER<span style="color: var(--gold);">QUEST</span>
@@ -68,16 +73,17 @@
             EXPLORER
         </h2>
     </div>
- 
+
+    <!-- Login Card -->
     <div class="pixel-border w-full max-w-sm p-8" style="background: rgba(0, 26, 77, 0.95);">
- 
-        <div class="game-font text-xs mb-6 flex items-center gap-2" style="color: var(--gold);">
-            PLAYER LOGIN <span class="cursor">_</span>
+
+        <div class="game-font text-xs mb-6" style="color: var(--gold);">
+            PLAYER LOGIN
         </div>
- 
-        <div id="error-msg" class="hidden game-font mb-4 p-3" style="background: rgba(255,50,50,0.15); color: #ff6b6b; border-left: 3px solid #ff4444; font-size: 9px;">
+
+        <div id="error-msg" class="hidden game-font mb-4 p-3" style="background: rgba(255,50,50,0.15); color: #ff6b6b; border-left: 3px solid #ff4444; font-size: 8px; line-height: 1.8;">
         </div>
- 
+
         <form id="login-form" novalidate>
             <div class="mb-4">
                 <label class="game-font block mb-2" style="color: #a0b8e0; font-size: 9px;">
@@ -89,9 +95,10 @@
                     placeholder="you@csub.edu"
                     class="w-full px-4 py-3 text-white outline-none text-sm font-semibold"
                     style="background: #001133; border: 2px solid #003594; font-family: 'Rajdhani', sans-serif;"
+                    autocomplete="email"
                 />
             </div>
- 
+
             <div class="mb-6">
                 <label class="game-font block mb-2" style="color: #a0b8e0; font-size: 9px;">
                     PASSWORD
@@ -101,10 +108,12 @@
                     type="password"
                     class="w-full px-4 py-3 text-white outline-none text-sm font-semibold"
                     style="background: #001133; border: 2px solid #003594; font-family: 'Rajdhani', sans-serif;"
+                    autocomplete="current-password"
                 />
             </div>
- 
+
             <button
+                id="login-btn"
                 type="submit"
                 class="pixel-btn w-full py-3 game-font font-bold"
                 style="background: var(--gold); color: var(--blue); font-size: 10px;"
@@ -112,7 +121,7 @@
                 START GAME
             </button>
         </form>
- 
+
         <div class="mt-6 text-center">
             <span class="text-sm" style="color: #a0b8e0;">New runner? </span>
             <a href="signup.html" class="text-sm font-bold hover:underline" style="color: var(--gold);">
@@ -120,10 +129,74 @@
             </a>
         </div>
     </div>
- 
+
     <div class="mt-6 game-font" style="color: #1a3a6b; font-size: 8px;">
         CSUB RUNNERQUEST EXPLORER
     </div>
- 
+
+    <script>
+        const API = 'https://jvillacorta.cs3680.com/api/auth';
+
+        // redirect if already logged in
+        if (localStorage.getItem('rqe_token')) {
+            window.location.href = 'game.html';
+        }
+
+        // helpers
+        function showError(msg) {
+            const el = document.getElementById('error-msg');
+            el.textContent = msg;
+            el.classList.remove('hidden');
+        }
+        function clearError() {
+            document.getElementById('error-msg').classList.add('hidden');
+        }
+        function setLoading(loading) {
+            const btn = document.getElementById('login-btn');
+            btn.disabled = loading;
+            btn.textContent = loading ? 'PLEASE WAIT...' : 'START GAME';
+        }
+
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearError();
+
+            const email    = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            // client-side validation
+            if (!email || !password) {
+                showError('! ALL FIELDS REQUIRED');
+                return;
+            }
+
+            setLoading(true);
+
+            try {
+                const res  = await fetch(`${API}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await res.json();
+
+                if (!res.ok) {
+                    // surface backend error message directly
+                    showError(`! ${(data.message || 'LOGIN FAILED').toUpperCase()}`);
+                    return;
+                }
+
+                // store JWT and user info, then go to game
+                localStorage.setItem('rqe_token', data.token);
+                localStorage.setItem('rqe_user', JSON.stringify(data.user));
+                window.location.href = 'game.html';
+
+            } catch (err) {
+                showError('! COULD NOT REACH SERVER');
+            } finally {
+                setLoading(false);
+            }
+        });
+    </script>
 </body>
 </html>
