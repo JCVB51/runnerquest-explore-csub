@@ -43,20 +43,6 @@ function validateSignupInput(payload) {
   };
 }
 
-function validateVerifyEmailInput(payload) {
-  const token = String(payload.token || "").trim();
-
-  if (!token) {
-    return { error: "Verification token is required." };
-  }
-
-  return {
-    data: {
-      token,
-    },
-  };
-}
-
 function validateLoginInput(payload) {
   const email = normalizeEmail(payload.email);
   const password = String(payload.password || "");
@@ -79,6 +65,5 @@ function validateLoginInput(payload) {
 
 module.exports = {
   validateSignupInput,
-  validateVerifyEmailInput,
   validateLoginInput,
 };
