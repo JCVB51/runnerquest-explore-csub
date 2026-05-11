@@ -133,28 +133,82 @@
  "tileheight":16,
  "tilesets":[
         {
+         "columns":17,
          "firstgid":1,
-         "source":"..\/tsx\/Room_Builder_free_16x16.tsx"
+         "image":"..\/..\/oldAssets\/Modern tiles_Free 16x16\/Interiors_free\/16x16\/Room_Builder_free_16x16.png",
+         "imageheight":368,
+         "imagewidth":272,
+         "margin":0,
+         "name":"Room_Builder_free_16x16",
+         "spacing":0,
+         "tilecount":391,
+         "tileheight":16,
+         "tilewidth":16
         }, 
         {
+         "columns":16,
          "firstgid":392,
-         "source":"..\/tsx\/Interiors_free_16x16.tsx"
+         "image":"..\/..\/oldAssets\/Modern tiles_Free 16x16\/Interiors_free\/16x16\/Interiors_free_16x16.png",
+         "imageheight":1424,
+         "imagewidth":256,
+         "margin":0,
+         "name":"Interiors_free_16x16",
+         "spacing":0,
+         "tilecount":1424,
+         "tileheight":16,
+         "tilewidth":16
         }, 
         {
+         "columns":24,
          "firstgid":1816,
-         "source":"..\/tsx\/Adam_16x16.tsx"
+         "image":"..\/..\/oldAssets\/Modern tiles_Free 16x16\/Characters_free\/Adam_16x16.png",
+         "imageheight":224,
+         "imagewidth":384,
+         "margin":0,
+         "name":"Adam_16x16",
+         "spacing":0,
+         "tilecount":336,
+         "tileheight":16,
+         "tilewidth":16
         }, 
         {
+         "columns":24,
          "firstgid":2152,
-         "source":"..\/tsx\/Alex_16x16.tsx"
+         "image":"..\/..\/oldAssets\/Modern tiles_Free 16x16\/Characters_free\/Alex_16x16.png",
+         "imageheight":224,
+         "imagewidth":384,
+         "margin":0,
+         "name":"Alex_16x16",
+         "spacing":0,
+         "tilecount":336,
+         "tileheight":16,
+         "tilewidth":16
         }, 
         {
+         "columns":24,
          "firstgid":2488,
-         "source":"..\/tsx\/Bob_16x16.tsx"
+         "image":"..\/..\/oldAssets\/Modern tiles_Free 16x16\/Characters_free\/Bob_16x16.png",
+         "imageheight":224,
+         "imagewidth":384,
+         "margin":0,
+         "name":"Bob_16x16",
+         "spacing":0,
+         "tilecount":336,
+         "tileheight":16,
+         "tilewidth":16
         }, 
         {
+         "columns":24,
          "firstgid":2824,
-         "source":"..\/tsx\/Amelia_16x16.tsx"
+         "image":"..\/..\/oldAssets\/Modern tiles_Free 16x16\/Characters_free\/Amelia_16x16.png",
+         "imageheight":224,
+         "imagewidth":384,
+         "margin":0,
+         "name":"Amelia_16x16",
+         "spacing":0,
+         "tilecount":336,
+         "tileheight":16,
+         "tilewidth":16
         }],
  "tilewidth":16,
  "type":"map",
