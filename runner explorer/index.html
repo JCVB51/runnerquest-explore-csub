@@ -182,7 +182,7 @@
                     return;
                 }
 
-                // store JWT and user info, then go to game
+                // jwt to localstorate then go to game.html
                 localStorage.setItem('rqe_token', data.token);
                 localStorage.setItem('rqe_user', JSON.stringify(data.user));
                 window.location.href = 'game.html';
