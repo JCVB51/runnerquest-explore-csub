@@ -64,7 +64,6 @@
 
     <div class="scanline"></div>
 
-    <!-- Logo -->
     <div class="mb-10 text-center">
         <h1 class="game-font text-xl md:text-3xl leading-relaxed" style="color: white; text-shadow: 3px 3px 0 var(--blue), 0 0 30px rgba(255,199,44,0.3);">
             RUNNER<span style="color: var(--gold);">QUEST</span>
@@ -74,7 +73,6 @@
         </h2>
     </div>
 
-    <!-- Login Card -->
     <div class="pixel-border w-full max-w-sm p-8" style="background: rgba(0, 26, 77, 0.95);">
 
         <div class="game-font text-xs mb-6" style="color: var(--gold);">
@@ -142,7 +140,7 @@
             window.location.href = 'game.html';
         }
 
-        // helpers
+        // helper functions
         function showError(msg) {
             const el = document.getElementById('error-msg');
             el.textContent = msg;
@@ -164,7 +162,6 @@
             const email    = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
 
-            // client-side validation
             if (!email || !password) {
                 showError('! ALL FIELDS REQUIRED');
                 return;
@@ -181,7 +178,6 @@
                 const data = await res.json();
 
                 if (!res.ok) {
-                    // surface backend error message directly
                     showError(`! ${(data.message || 'LOGIN FAILED').toUpperCase()}`);
                     return;
                 }

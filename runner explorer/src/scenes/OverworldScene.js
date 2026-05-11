@@ -4,17 +4,14 @@ import Phaser from 'phaser';
 // the idea is that we create scripted routes between nodes that will play when an arrow key is
 // pressed, simulating the mario overworld traversal that we referenced when brainstorming this project
 const NODES = {
-    // top roundabout, starting loaction
     start: { col: 11, row: 12, label: 'Start'},
 
-    // full traversal route from start to the wsl library
+    // traverse from start to library
     wsl_path1: { col: 11, row: 15, label: '' },
     wsl_path2: { col: 20, row: 15, label: '' },
     library: { col: 20, row: 13, label: 'Walter Stiern Library'},
 
-    // full traversal route from start to the crossroads
-    // at the crossroads, the user can either go to the student union
-    // or the student recreational center
+    // traverse from start to crossroads
     cross_path1:  { col: 11, row: 28, label: '' },
     cross_path2:  { col: 21, row: 28, label: '' },
     cross_path3:  { col: 21, row: 30, label: '' },
@@ -68,6 +65,12 @@ const LOCATION_SCENES = {
     student_rec:  'SrcScene'
 };
 
+const SCENE_RETURN_NODES = {
+    WslScene:  'library',
+    SuScene:   'student_union',
+    SrcScene:  'student_rec'
+};
+
 // calculate the node value to its pixel value
 function nodePixel(node) {
     return {
@@ -91,11 +94,15 @@ export default class OverworldScene extends Phaser.Scene {
             frameWidth: 32,
             frameHeight: 32
         });
+        this.load.audio('bgm', 'assets/audio/gameaudio.mp3');
     }
 
     create() {
         const map = this.make.tilemap({ key: 'overworld' });
-
+        if (!this.sound.get('bgm')) {
+            this.sound.add('bgm', { loop: true, volume: 0.5 }).play();
+        }
+                
         const classicTiles = map.addTilesetImage('ClassicRPG_Sheet', 'classic_rpg');
         const mapleTiles   = map.addTilesetImage('Maple Tree',       'maple_tree');
         const springTiles  = map.addTilesetImage('farm rpg',         'spring_tiles');
@@ -110,7 +117,14 @@ export default class OverworldScene extends Phaser.Scene {
         map.createLayer('Tile Layer 7',                allTiles, 0, 0);
         map.createLayer('Tile Layer 8',                allTiles, 0, 0);
 
-        const spawnPixel = nodePixel(NODES.start);
+        const data = this.scene.settings.data;
+        const returnNode = (data && data.returnNode && SCENE_RETURN_NODES[data.returnNode])
+            ? SCENE_RETURN_NODES[data.returnNode]
+            : 'start'; // if returnNode exists start there, if not start from spawn
+
+        this.currentNode = returnNode;
+
+        const spawnPixel = nodePixel(NODES[returnNode]);
         this.player = this.add.sprite(spawnPixel.x, spawnPixel.y, 'player');
         this.player.setOrigin(0.5, 0.5);
         this.player.setDepth(10);
@@ -141,7 +155,7 @@ export default class OverworldScene extends Phaser.Scene {
 
         this.player.anims.play('idle');
 
-        this.currentNode = 'start';
+        //this.currentNode = 'start';
         this.isWalking = false;
 
         this.cameras.main.startFollow(this.player, true, 0.1, 0.1);
@@ -210,8 +224,9 @@ export default class OverworldScene extends Phaser.Scene {
         if (this.isWalking) return;
 
         const routes = ROUTES[this.currentNode];
-        if (!routes) return;
+        if (!routes) return; 
 
+        // if you press a key, and thats an allowed move from your node in the list, then proceed
         if (Phaser.Input.Keyboard.JustDown(this.cursors.right) && routes.right) {
             this.isWalking = true;
             this.walkQueue([...routes.right]);

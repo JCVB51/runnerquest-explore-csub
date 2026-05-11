@@ -1,11 +1,10 @@
 {
     "activeFile": "assets/maps/src.tmx",
     "expandedProjectPaths": [
-        "assets/maps",
-        "oldAssets",
-        "assets/tsx",
+        ".",
         "assets",
-        "."
+        "assets/maps",
+        "oldAssets"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -101,8 +100,8 @@
             "scale": 1.2033333333333331,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 159.9722991689751,
-                "y": 239.7506925207757
+                "x": 159.55678670360112,
+                "y": 240.1662049861497
             }
         },
         "assets/maps/student union.tmx#Adam_16x16": {
@@ -125,10 +124,10 @@
         },
         "assets/maps/wsl.tmx": {
             "scale": 1.7575,
-            "selectedLayer": 0,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 239.8293029871977,
-                "y": 159.60170697012802
+                "x": 239.54480796586057,
+                "y": 159.31721194879088
             }
         },
         "assets/maps/wsl.tmx#Adam_16x16": {
