@@ -62,6 +62,12 @@ const ROUTES = {
     }
 };
 
+const LOCATION_SCENES = {
+    library:      'WslScene',
+    student_union: 'SuScene',
+    student_rec:  'SrcScene'
+};
+
 // calculate the node value to its pixel value
 function nodePixel(node) {
     return {
@@ -222,5 +228,13 @@ export default class OverworldScene extends Phaser.Scene {
             this.isWalking = true;
             this.walkQueue([...routes.down]);
         }
+
+        if (Phaser.Input.Keyboard.JustDown(this.cursors.space)) {
+            const sceneKey = LOCATION_SCENES[this.currentNode];
+            if (sceneKey) {
+                this.scene.start(sceneKey);
+            }
+        }
+
     }
 }

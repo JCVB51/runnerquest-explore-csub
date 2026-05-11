@@ -1,4 +1,7 @@
 import Phaser from 'phaser';
+import WslScene  from './src/scenes/wslScene.js';
+import SuScene   from './src/scenes/suScene.js';
+import SrcScene  from './src/scenes/srcScene.js';
 import OverworldScene from './src/scenes/OverworldScene.js';
 
 const config = {
@@ -14,7 +17,7 @@ const config = {
         arcade: { debug: false }
     },
 
-    scene: [OverworldScene]
+    scene: [OverworldScene, WslScene, SuScene, SrcScene]
 };
 
 new Phaser.Game(config);
